@@ -1,0 +1,60 @@
+
+<!--
+{{"Nombre: "+ celdas.awesomeThings}}<br>
+{{"Celdas: "+ celdas.rowCollection[0].ret}}<br>
+-->
+
+<div class="col-md-12 table-responsive">
+    <div class="panel-body">
+	<p></p>
+	<table st-table="celdas.displayed" st-safe-src=celdas.rowCollection class="table table-striped">
+		<thead>
+		<tr>
+			<th colspan="4">
+				<input st-search="" class="form-control input-sm" placeholder="Buscar.." type="text"/>
+			</th>
+			<th colspan="5">
+				<form class="form-inline text-right">
+					<label for="items">Filas por pagina: </label>
+					<input class="input-sm form-control" name="items" id="items" type="number" ng-model="itemsByPage" />
+				</form>
+			</th>
+		</tr>
+		<tr>
+		    <th>Cluster</th>
+		    <th>Controladora</th>
+		    <th>Celda</th>
+		    <th>Cell ID</th>
+		    <th>BCCH/PSC/PCI</th>
+		    <th>AZ</th>
+		    <th>TE</th>
+		    <th>TM</th>
+		    <th>RET</th>
+		    <th>ANTENA</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr ng-repeat="row in celdas.displayed">
+			<td>{{ row.controladora.nombre }}</td>
+			<td>{{ row.controladora.nombre }}</td>
+			<td>{{ row.nombre | uppercase }}</td>
+			<td>{{ row.cellid }}</td>
+			<td>{{ row.psc }}</td>
+			<td>{{ row.az[0].valor | number:0 }}°</td>
+			<td>{{ row.te[0].valor | number:1}}°</td>
+			<td>{{ row.tm[0].valor | number:1}}°</td>
+			<td>{{ row.ret }}</td>
+			<td>{{ row.antenas.marca+" "+row.antenas.modelo | limitTo:15 }}</td>
+		</tr>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="9" class="text-center">
+					<div st-pagination="" st-items-by-page="itemsByPage" st-displayed-pages="10"></div>
+				</td>
+			</tr>
+		</tfoot>
+	</table>
+</div>
+</div>
+
