@@ -1,0 +1,71 @@
+<div>
+<div class="main-fab">
+<md-button class="font-size-button md-fab md-accent">+</md-button>
+</div>
+
+<table st-table="celdas.displayed" st-safe-src=celdas.rowCollection class="md-table" md-colresize="md-colresize">
+	<thead>
+	<tr>
+	<th colspan="8">
+	<md-toolbar class="md-whiteframe-1dp" style="">
+	<span flex="flex"></span>
+    <div class="md-toolbar-tools">
+	  <div style="padding-left:88px;" class="fill-height" layout="row" flex="flex">
+        <div>
+          <i class="glyphicon glyphicon-search" style="top:5px; left: -10px"></i>
+        </div>
+	    <md-input-container class="" style="top:22px" flex="flex">
+          <label style="color: white">Buscar celda</label>
+          <input st-search="" style="color: white" type="" name="">
+        </md-input-container>
+	  </div>
+     </div>  
+	</md-toolbar>
+	</th>
+	<th colspan="2">
+		<form class="form-inline text-right">
+					<label for="items">Filas por pagina: </label>
+					<input class="input-sm form-control" name="items" id="items" type="number" ng-model="itemsByPage" />
+				</form>
+			
+	</th>
+	<th colspan="1">
+	</th>
+	</tr>
+		<tr class="md-table-headers-row">
+		    <th class="md-table-header">Cluster</th>
+		    <th class="md-table-header">Controladora</th>
+		    <th class="md-table-header">Celda</th>
+		    <th class="md-table-header">Cell ID</th>
+		    <th class="md-table-header">BCCH/PSC/PCI</th>
+		    <th class="md-table-header">AZ</th>
+		    <th class="md-table-header">TE</th>
+		    <th class="md-table-header">TM</th>
+		    <th class="md-table-header">RET</th>
+		    <th class="md-table-header">ANTENA</th>
+		    <th class="md-table-header"></th>
+		</tr>
+	</thead>
+	<tbody class="md-table-body">
+		<tr ng-repeat="row in celdas.displayed">
+			<td>{{ row.controladora.nombre }}</td>
+			<td>{{ row.controladora.nombre }}</td>
+			<td style="color: black;">{{ row.nombre | uppercase }}</td>
+			<td>{{ row.cellid }}</td>
+			<td>{{ row.psc }}</td>
+			<td>{{ row.az[0].valor | number:0 }}°</td>
+			<td>{{ row.te[0].valor | number:1}}°</td>
+			<td>{{ row.tm[0].valor | number:1}}°</td>
+			<td>{{ row.ret }}</td>
+			<td>{{ row.antenas.marca+" "+row.antenas.modelo | truncate }}</td>
+			<td><md-button class="md-icon-button btn1" aria-label="More">
+        			<md-icon class="glyphicon glyphicon-option-vertical"></md-icon>
+      			</md-button>
+      		</td>
+		</tr>
+
+	</tbody>
+
+	</table>
+</div>
+</section>

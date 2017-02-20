@@ -15,49 +15,38 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet"; href="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.css">
+    
     <!-- endbuild -->
   </head>
-  <body ng-app="dataRfFeApp">
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  <body ng-app="dataRfFeApp" layout="column">
 
-    <!-- Add your site or application content here -->
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">dataRfFe</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#!/about">About</a></li>
-              <li><a ng-href="#!/celdas">Celdas</a></li>
-              <li><a ng-href="#!/detalle">Detalle</a></li>
-            </ul>
-          </div>
+  <div class="main-fab">
+      <md-button class="font-size-button md-fab md-accent">+</md-button>
+  </div>
+  <md-toolbar class="md-tall md-whiteframe-2dp" layout="column"><span flex="flex"></span>
+    <div class="md-toolbar-tools">
+      <div style="padding-left:88px;" class="fill-height" layout="row" flex="flex">
+        <!--
+        <div class="" >
+        <a style="top:-15px;" class="md-icon-button"><i class="glyphicon glyphicon-search"></i></a>
         </div>
-      </div>
-
-    <div ng-view=""></div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+        -->
+        <div>
+          <i class="glyphicon glyphicon-search" style="top:-15px; left: -8px;"></i>
+        </div>
+        <md-input-container style="" flex="flex">
+          <label style="color: white;">Buscar</label>
+          <th>
+          <input style="color: white;">
+          </th>
+        </md-input-container>
+      </div>  
     </div>
+  </md-toolbar>
 
-
+  <div ng-view=""></div>
+    
+  
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
        !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
@@ -93,6 +82,7 @@
         <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/celdas.js"></script>
         <script src="scripts/controllers/celdamodal.js"></script>
+        <script src="scripts/services/celdasfactory.js"></script>
         <!-- endbuild -->
         <script src="https://unpkg.com/ng-table@2.0.2/bundles/ng-table.min.js"></script>
 <script src="bower_components/angular-smart-table/dist/smart-table.js"></script>
